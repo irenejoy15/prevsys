@@ -58,6 +58,17 @@
 /* === Import template variables === */
 /*-------------------------------------------------------------------*/
 /* === SCSS Compass Functions === */
+*{
+  font-family:'Franklin Gothic', 'Arial Narrow', Arial, sans-serif;
+}
+
+.page-item.active .page-link {
+  background-color: black !important;
+  border-color: black !important;
+}
+button, input{
+  height: 45px;
+}
 @-moz-keyframes flash {
   0% {
     opacity: 1;
@@ -21142,7 +21153,7 @@ dl li {
   font-family: "Roboto", sans-serif;
   font-weight: 400;
   padding: 0;
-  width: 257px;
+  width: 245px !important;
   z-index: 11;
   transition: width 0.25s ease, background 0.25s ease;
   -webkit-transition: width 0.25s ease, background 0.25s ease;
@@ -21213,7 +21224,7 @@ dl li {
 
 .sidebar .nav .nav-item .nav-link i.menu-arrow {
   display: inline-block;
-  -webkit-font-smoothing: antialiased;
+  -webkit-font-ing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   margin-left: auto;
   margin-right: 0;
@@ -21245,6 +21256,7 @@ dl li {
   font-size: 0.875rem;
   line-height: 1;
   vertical-align: middle;
+  margin-left: 20px;
 }
 
 .sidebar .nav .nav-item .nav-link .badge {

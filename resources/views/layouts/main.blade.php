@@ -15,8 +15,9 @@
   <title>BEVMI - PREVSYS</title>
   <link rel="stylesheet" href="{{asset('vendors/mdi/css/materialdesignicons.min.css')}}">
   <link rel="stylesheet" href="{{asset('css/style.css')}}">
+  <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
   <link rel="shortcut icon" href="{{asset('images/PREVSYS-LOGO-mini.png')}}" />
-
+  
 </head>
 <body>
   <div class="container-scroller">
@@ -166,7 +167,7 @@
 
     <script src="{{asset('vendors/base/vendor.bundle.base.js')}}"></script>
     <script src="{{asset('js/jquery-3.7.1.js')}}"></script>
-    
+    <script src="{{asset('js/bootstrap.min.js')}}"></script>
   @yield('scripts')
 </body>
 

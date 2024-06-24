@@ -17,4 +17,13 @@ class Types extends Model
     protected $casts = [
         'id' => 'string',
     ];
+
+    public function scopeSearch($query,$search){
+        if($search!=''){
+            $types = $query->orderBy('id','DESC')->where('type_name', 'like', '%'.$search.'%')->paginate(8)->appends(request()->query());
+        }else{
+            $types = $query->orderBy('id','DESC')->paginate(8)->onEachSide(1);
+        }
+        return $types;
+    }
 }

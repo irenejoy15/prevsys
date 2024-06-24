@@ -12,5 +12,5 @@ Route::get('/', function () {
 Route::resource('types', TypesController::class,['names'=>[
     'index'=>'types.index',
     'store'=>'types.store',
-    'edit'=>'pallet.edit',
-],'only' => ['index', 'store','edit']]);
+],'only' => ['index', 'store']]);
+Route::post('/update_type',[TypesController::class, 'update_type'])->name('update_type');
