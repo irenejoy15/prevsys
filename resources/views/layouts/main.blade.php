@@ -113,7 +113,14 @@
           <li class="nav-item">
             <a class="nav-link" href="{{route('types.index')}}">
               <i class="mdi mdi mdi-book-minus"></i>
-              <span class="menu-title">List of Types</span>
+              <span class="menu-title">Types</span>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="{{route('frequency.index')}}">
+              <i class="mdi mdi mdi mdi-timelapse"></i>
+              <span class="menu-title">Frequencies</span>
             </a>
           </li>
         </ul>
