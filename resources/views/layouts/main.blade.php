@@ -110,18 +110,37 @@
       <!-- partial:partials/_sidebar.html -->
       <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <ul class="nav">
-          <li class="nav-item">
+          {{-- <li class="nav-item">
             <a class="nav-link" href="{{route('types.index')}}">
               <i class="mdi mdi mdi-book-minus"></i>
               <span class="menu-title">Types</span>
             </a>
-          </li>
-
-          <li class="nav-item">
-            <a class="nav-link" href="{{route('frequency.index')}}">
-              <i class="mdi mdi mdi mdi-timelapse"></i>
-              <span class="menu-title">Frequencies</span>
+          </li> --}}
+          <li class="nav-item"> 
+            <a class="nav-link" data-toggle="collapse" href="#setting" aria-expanded="false" aria-controls="auth">
+              <i class="mdi mdi-account menu-icon"></i>
+              <span class="menu-title">ADMIN SETTINGS</span>
+              <i class="menu-arrow"></i>
             </a>
+            <div class="collapse" id="setting">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item">
+                  <a class="nav-link" href="{{route('companies.index')}}">
+                    <span class="menu-title">Companies</span>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{{route('frequency.index')}}">
+                    <span class="menu-title">Frequencies</span>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{{route('types.index')}}">
+                    <span class="menu-title">Types</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
           </li>
         </ul>
       </nav>

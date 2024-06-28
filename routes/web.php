@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TypesController;
 use App\Http\Controllers\FrequencyController;
-
+use App\Http\Controllers\CompanyController;
 Route::get('/', function () {
     return view('layouts.main');
 });
@@ -24,3 +24,11 @@ Route::resource('frequency', FrequencyController::class,['names'=>[
 ],'only' => ['index', 'store']]);
 Route::post('/update_frequency',[FrequencyController::class, 'update_frequency'])->name('update_frequency');
 // END FREQUENCY ROUTES
+
+// COMPANIES ROUTES
+Route::resource('companies', CompanyController::class,['names'=>[
+    'index'=>'companies.index',
+    'store'=>'companies.store',
+],'only' => ['index', 'store']]);
+Route::post('/update_company',[CompanyController::class, 'update_company'])->name('update_company');
+// END COMPANIES ROUTES

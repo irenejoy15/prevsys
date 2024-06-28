@@ -3,3 +3,7 @@ php artisan migrate:refresh --path=\database/migrations/2024_06_21_171749_create
 
 php artisan migrate --path=\database/migrations/2024_06_24_103549_create_frequencies_table.php
 php artisan migrate:refresh --path=\database/migrations/2024_06_24_103549_create_frequencies_table.php
+
+
+php artisan migrate --path=\database/migrations/2024_06_27_162025_create_companies_table.php
+php artisan migrate:refresh --path=\database/migrations/2024_06_27_162025_create_companies_table.php
