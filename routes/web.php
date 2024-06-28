@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TypesController;
 use App\Http\Controllers\FrequencyController;
 use App\Http\Controllers\CompanyController;
+use App\Http\Controllers\LocationController;
+
 Route::get('/', function () {
     return view('layouts.main');
 });
@@ -32,3 +34,11 @@ Route::resource('companies', CompanyController::class,['names'=>[
 ],'only' => ['index', 'store']]);
 Route::post('/update_company',[CompanyController::class, 'update_company'])->name('update_company');
 // END COMPANIES ROUTES
+
+// LOCATION ROUTES
+Route::resource('locations', LocationController::class,['names'=>[
+    'index'=>'locations.index',
+    'store'=>'locations.store',
+],'only' => ['index', 'store']]);
+Route::post('/update_location',[LocationController::class, 'update_location'])->name('update_location');
+// END LOCATION ROUTES

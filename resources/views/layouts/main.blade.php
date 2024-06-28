@@ -139,6 +139,11 @@
                     <span class="menu-title">Types</span>
                   </a>
                 </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{{route('locations.index')}}">
+                    <span class="menu-title">Location</span>
+                  </a>
+                </li>
               </ul>
             </div>
           </li>
