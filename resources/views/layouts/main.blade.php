@@ -144,6 +144,11 @@
                     <span class="menu-title">Location</span>
                   </a>
                 </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{{route('departments.index')}}">
+                    <span class="menu-title">Department</span>
+                  </a>
+                </li>
               </ul>
             </div>
           </li>

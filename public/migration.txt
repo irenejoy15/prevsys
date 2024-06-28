@@ -10,3 +10,6 @@ php artisan migrate:refresh --path=\database/migrations/2024_06_27_162025_create
 
 php artisan migrate --path=\database/migrations/2024_06_28_110322_create_locations_table.php
 php artisan migrate:refresh --path=\database/migrations/2024_06_28_110322_create_locations_table.php
+
+php artisan migrate --path=\database/migrations/2024_06_28_131203_create_departments_table.php
+php artisan migrate:refresh --path=\database/migrations/2024_06_28_131203_create_departments_table.php

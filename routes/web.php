@@ -5,6 +5,7 @@ use App\Http\Controllers\TypesController;
 use App\Http\Controllers\FrequencyController;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\LocationController;
+use App\Http\Controllers\DepartmentController;
 
 Route::get('/', function () {
     return view('layouts.main');
@@ -42,3 +43,11 @@ Route::resource('locations', LocationController::class,['names'=>[
 ],'only' => ['index', 'store']]);
 Route::post('/update_location',[LocationController::class, 'update_location'])->name('update_location');
 // END LOCATION ROUTES
+
+// DEPARTMENTS ROUTES
+Route::resource('departments', DepartmentController::class,['names'=>[
+    'index'=>'departments.index',
+    'store'=>'departments.store',
+],'only' => ['index', 'store']]);
+Route::post('/update_department',[DepartmentController::class, 'update_department'])->name('update_department');
+// END DEPARTMENTS ROUTES
