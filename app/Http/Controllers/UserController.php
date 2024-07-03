@@ -71,7 +71,7 @@ class UserController extends Controller
                 'id'=>$uuid,
                 'name'=>$name,
                 'email'=>$email,
-                'password'=>md5($password),
+                'password'=>$password,
                 'is_active'=>$is_active,
                 'is_admin' => $is_admin,
                 'photo'=> $photo_image_post,
@@ -86,7 +86,7 @@ class UserController extends Controller
                 'id'=>$uuid,
                 'name'=>$name,
                 'email'=>$email,
-                'password'=>md5($password),
+                'password'=>$password,
                 'is_active'=>$is_active,
                 'is_admin' => $is_admin,
                 'department_id'=>$department_id,
@@ -188,13 +188,13 @@ class UserController extends Controller
             endif;
         endif;
 
-        $password_post = trim($request->input('password'));  
+        $password_post = trim($request->input('password_update'));  
         if(empty($password_post)):
             $password = $user_row->password;
         else:
             $password = md5($password_post);
         endif;
-
+        
         $data_user = array(
             'name'=>$name,
             'email'=>$email,

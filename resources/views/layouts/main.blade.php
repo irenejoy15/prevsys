@@ -1,5 +1,5 @@
 <?php 
-//   $user_auth = Auth::user();
+  $user_auth = Auth::user();
   date_default_timezone_set('Asia/Manila');
   //$datetoday = date('Y-m-d H:i:s');
   $year = date('Y');
@@ -85,15 +85,15 @@
           </li>
           <li class="nav-item nav-profile dropdown">
             <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
-              <img src="images/faces/face5.jpg" alt="profile"/>
-              <span class="nav-profile-name">Louis Barnett</span>
+              @if(empty($user_auth->photo))
+                <img src="{{asset('user_images/main.png')}}" alt="profile"/>
+              @else
+                <img src="{{asset('user_images')}}/{{$user_auth->photo}}" alt="profile"/>
+              @endif
+              <span class="nav-profile-name">{{$user_auth->name}}</span>
             </a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
-              <a class="dropdown-item">
-                <i class="mdi mdi-settings text-primary"></i>
-                Settings
-              </a>
-              <a class="dropdown-item">
+              <a class="dropdown-item" href="{{url('logout')}}">
                 <i class="mdi mdi-logout text-primary"></i>
                 Logout
               </a>
@@ -157,6 +157,12 @@
               </ul>
             </div>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{url('logout')}}">
+              <i class="mdi mdi-logout menu-icon"></i>
+              <span class="menu-title">LOGOUT</span>
+            </a>
+          </li> 
         </ul>
       </nav>
       <!-- partial -->

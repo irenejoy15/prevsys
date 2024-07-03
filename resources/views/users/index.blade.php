@@ -270,7 +270,7 @@
                         </div>
                         <div class="form-group">
                             {{ html()->label('PASSWORD:')->attribute('style','font-weight:bold;')->attribute('for','password_update') }}
-                            {{ html()->password('password_update')->class('form-control')->id('password_update')->attribute('style','font-weight:bold;')->attribute('form','store') }}
+                            {{ html()->password('password_update')->class('form-control')->id('password_update')->attribute('style','font-weight:bold;')->attribute('form','update') }}
                         </div>
                         <div class="form-group">
                             {{ html()->label('DEPARTMENT:')->attribute('style','font-weight:bold;')->attribute('for','department_id_update') }}
