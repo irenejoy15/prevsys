@@ -17,7 +17,7 @@
   <link rel="stylesheet" href="{{asset('css/style.css')}}">
   <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
   <link rel="shortcut icon" href="{{asset('images/PREVSYS-LOGO-mini.png')}}" />
-  
+  @yield('styles')
 </head>
 <body>
   <div class="container-scroller">
@@ -110,12 +110,12 @@
       <!-- partial:partials/_sidebar.html -->
       <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <ul class="nav">
-          {{-- <li class="nav-item">
-            <a class="nav-link" href="{{route('types.index')}}">
-              <i class="mdi mdi mdi-book-minus"></i>
-              <span class="menu-title">Types</span>
+          <li class="nav-item">
+            <a class="nav-link" href="{{route('inventories.index')}}">
+              <i class="mdi mdi-barcode menu-icon"></i>
+              <span class="menu-title">INVENTORY</span>
             </a>
-          </li> --}}
+          </li> 
           <li class="nav-item"> 
             <a class="nav-link" data-toggle="collapse" href="#setting" aria-expanded="false" aria-controls="auth">
               <i class="mdi mdi-account menu-icon"></i>
@@ -124,6 +124,11 @@
             </a>
             <div class="collapse" id="setting">
               <ul class="nav flex-column sub-menu">
+                <li class="nav-item">
+                  <a class="nav-link" href="{{route('users.index')}}">
+                    <span class="menu-title">Users</span>
+                  </a>
+                </li>
                 <li class="nav-item">
                   <a class="nav-link" href="{{route('companies.index')}}">
                     <span class="menu-title">Companies</span>

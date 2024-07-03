@@ -13,3 +13,13 @@ php artisan migrate:refresh --path=\database/migrations/2024_06_28_110322_create
 
 php artisan migrate --path=\database/migrations/2024_06_28_131203_create_departments_table.php
 php artisan migrate:refresh --path=\database/migrations/2024_06_28_131203_create_departments_table.php
+
+php artisan migrate --path=\database/migrations/2024_06_28_141136_create_inventories_table.php
+php artisan migrate:refresh --path=\database/migrations/2024_06_28_141136_create_inventories_table.php
+
+php artisan migrate --path=\database/migrations/0001_01_01_000000_create_users_table.php
+php artisan migrate:refresh --path=\database/migrations/0001_01_01_000000_create_users_table.php
+
+php artisan migrate --path=\database/migrations/2024_07_01_140219_create_user_companies_table.php
+
+php artisan migrate:refresh --path=\database/migrations/2024_07_01_140219_create_user_companies_table.php
