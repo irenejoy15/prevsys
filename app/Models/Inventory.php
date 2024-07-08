@@ -36,4 +36,13 @@ class Inventory extends Model
     public function Department(){
         return $this->belongsTo(Department::class,'department_id','id');
     }
+
+    public function scopeAjaxSearch($query,$search,$department_id){
+        if($search == ''):
+            $inventories = Inventory::select('id','inventory_name')->where('department_id',$department_id)->limit(5)->get();
+        else:
+            $inventories = Inventory::select('id','inventory_name')->where('inventory_name', 'like', '%' .$search . '%')->where('department_id',$department_id)->limit(5)->get();
+        endif;
+        return $inventories;
+    }
 }

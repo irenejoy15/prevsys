@@ -26,4 +26,15 @@ class Location extends Model
         }
         return $locations;
     }
+
+    public function scopeAjaxSearch($query,$search){
+        if($search == ''):
+            $locations = Location::select('id','location_name')->limit(5)->get();
+        else:
+            $locations = Location::select('id','location_name')->where('location_name', 'like', '%' .$search . '%')->limit(5)->get();
+        endif;
+        return $locations;
+    }
+
+
 }

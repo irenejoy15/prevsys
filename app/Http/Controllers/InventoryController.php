@@ -7,7 +7,10 @@ use Carbon\Carbon;
 use App\Models\Inventory;
 use App\Models\Types;
 use App\Models\Department;
+use App\Http\Resources\InventoryResource;
+
 use Uuid;
+use Auth;
 
 class InventoryController extends Controller
 {
@@ -80,4 +83,12 @@ class InventoryController extends Controller
         endif;
 
     }
+
+     public function inventory_ajax(Request $request){
+        $search = $request->input('search');
+        $user_auth = Auth::user();
+        $department_id = $user_auth->department_id;
+        $inventories = Inventory::AjaxSearch($search,$department_id);
+        return InventoryResource::collection($inventories);
+     }
 }

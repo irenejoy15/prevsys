@@ -111,6 +111,12 @@
       <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <ul class="nav">
           <li class="nav-item">
+            <a class="nav-link" href="{{route('header.index')}}">
+              <i class="mdi mdi-content-paste menu-icon"></i>
+              <span class="menu-title">CALENDAR</span>
+            </a>
+          </li> 
+          <li class="nav-item">
             <a class="nav-link" href="{{route('inventories.index')}}">
               <i class="mdi mdi-barcode menu-icon"></i>
               <span class="menu-title">INVENTORY</span>

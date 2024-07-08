@@ -26,6 +26,7 @@ return new class extends Migration
             $table->boolean('is_oct');
             $table->boolean('is_nov');
             $table->boolean('is_dec');
+            $table->integer('year_interval')->default(1);
             $table->timestamps();
         });
     }

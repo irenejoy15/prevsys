@@ -38,7 +38,7 @@
     <div class="row">
         <div class="col-sm-12">
             <div class="text-center">
-                <a href="#" class="auth-link text-black">Forgot password? Please Contact the IT DEPT.</a>
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=cefrian.trinchera@bevmi.com"  class="auth-link text-black">Forgot password? Please Contact the IT DEPT.</a>
             </div>
         </div>
     </div>

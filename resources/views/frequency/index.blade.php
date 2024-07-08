@@ -68,7 +68,7 @@ Frequency
                                     <tr>
                                         <td class="text-center">{{$frequency->frequency}}</td>
                                         <td class="text-center">
-                                            <a onclick="edit('{!!$frequency->id!!}','{!!$frequency->frequency!!}','{!!$frequency->is_jan!!}','{!!$frequency->is_feb!!}','{!!$frequency->is_mar!!}','{!!$frequency->is_apr!!}','{!!$frequency->is_may!!}','{!!$frequency->is_jun!!}','{!!$frequency->is_jul!!}','{!!$frequency->is_aug!!}','{!!$frequency->is_sept!!}','{!!$frequency->is_oct!!}','{!!$frequency->is_nov!!}','{!!$frequency->is_dec!!}')" data-bs-toggle="modal" data-bs-target="#modalEdit">
+                                            <a onclick="edit('{!!$frequency->id!!}','{!!$frequency->frequency!!}','{!!$frequency->is_jan!!}','{!!$frequency->is_feb!!}','{!!$frequency->is_mar!!}','{!!$frequency->is_apr!!}','{!!$frequency->is_may!!}','{!!$frequency->is_jun!!}','{!!$frequency->is_jul!!}','{!!$frequency->is_aug!!}','{!!$frequency->is_sept!!}','{!!$frequency->is_oct!!}','{!!$frequency->is_nov!!}','{!!$frequency->is_dec!!}','{!!$frequency->year_interval!!}')" data-bs-toggle="modal" data-bs-target="#modalEdit">
                                                 <i class="mdi mdi-table-edit text-success"></i>
                                             </a>
                                         </td>
@@ -100,6 +100,10 @@ Frequency
                         <div class="form-group">
                             {{ html()->label('FREQUENCY NAME:')->attribute('style','font-weight:bold;')->attribute('for','frequency') }}
                             {{ html()->text('frequency')->class('form-control')->id('frequency')->attribute('style','font-weight:bold;')->attribute('form','store') }}
+                        </div>
+                        <div class="form-group">
+                            {{ html()->label('YEAR INTERVAL:')->attribute('style','font-weight:bold;')->attribute('for','year_interval') }}
+                            {{ html()->number('year_interval',1)->class('form-control')->id('year_interval')->attribute('style','font-weight:bold;')->attribute('min','1')->attribute('max','10')->attribute('form','store') }}
                         </div>
                     </div>    
                     <div class="col-sm-6">
@@ -272,6 +276,10 @@ Frequency
                             {{ html()->label('FREQUENCY NAME:')->attribute('style','font-weight:bold;')->attribute('for','frequency_update') }}
                             {{ html()->text('frequency_update')->class('form-control')->id('frequency_update')->attribute('style','font-weight:bold;')->attribute('form','update') }}
                         </div>
+                        <div class="form-group">
+                            {{ html()->label('YEAR INTERVAL:')->attribute('style','font-weight:bold;')->attribute('for','year_interval_update') }}
+                            {{ html()->number('year_interval_update',1)->class('form-control')->id('year_interval_update')->attribute('style','font-weight:bold;')->attribute('min','1')->attribute('max','10')->attribute('form','update') }}
+                        </div>
                     </div>    
                     <div class="col-sm-6">
                         <table class="table">
@@ -430,10 +438,11 @@ Frequency
 
 @section('scripts')
     <script>
-        function edit(id,frequency,jan,feb,mar,apr,may,jun,jul,aug,sept,oct,nov,dec){
+        function edit(id,frequency,jan,feb,mar,apr,may,jun,jul,aug,sept,oct,nov,dec,year_interval){
             document.getElementById('update_id').value = id;
             document.getElementById('frequency_update').value = frequency;
-
+            document.getElementById('year_interval_update').value = year_interval;
+            
             if(jan==0){
                 document.getElementById("is_jan_update_false").checked = true;
                 document.getElementById("is_jan_update_true").checked = false;

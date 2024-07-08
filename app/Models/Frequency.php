@@ -24,6 +24,7 @@ class Frequency extends Model
         'is_oct',
         'is_nov',
         'is_dec',
+        'year_interval'
     ];
 
     protected $casts = [
@@ -36,6 +37,15 @@ class Frequency extends Model
         }else{
             $frequencies = $query->orderBy('id','DESC')->paginate(8)->onEachSide(1);
         }
+        return $frequencies;
+    }
+
+    public function scopeAjaxSearch($query,$search){
+        if($search == ''):
+            $frequencies = $query->select('id','frequency')->limit(5)->get();
+        else:
+            $frequencies = $query->select('id','frequency')->where('frequency', 'like', '%' .$search . '%')->limit(5)->get();
+        endif;
         return $frequencies;
     }
 }

@@ -6,7 +6,9 @@ use Illuminate\Http\Request;
 use App\Http\Requests\FrequencyCreateRequest;
 use Uuid;
 use Carbon\Carbon;
+use Carbon\CarbonInterval;
 use App\Models\Frequency;
+use App\Http\Resources\FrequencyResource;
 
 class FrequencyController extends Controller
 {
@@ -15,6 +17,13 @@ class FrequencyController extends Controller
      */
     public function index(Request $request)
     {
+        // $mondays = $this->getMondays('2024-10-01');
+
+        // // Loop through the mondays and do whatever you want
+        // foreach ($mondays as $monday)
+        // {   
+        //     echo $monday.'<pre>';
+        // }
         $search = trim($request->get('search'));
         $frequencies = Frequency::Search($search); 
         return view('frequency.index',compact('search','frequencies'));
@@ -39,6 +48,7 @@ class FrequencyController extends Controller
         $is_oct = $request->input('is_oct');
         $is_nov = $request->input('is_nov');
         $is_dec = $request->input('is_dec');
+        $year_interval = $request->input('year_interval');
 
         $data = array(
             'id'=> $uuid,
@@ -55,6 +65,7 @@ class FrequencyController extends Controller
             'is_oct'=>$is_oct, 
             'is_nov'=>$is_nov,
             'is_dec'=>$is_dec,
+            'year_interval'=>$year_interval
         );
 
         Frequency::create($data);
@@ -64,7 +75,7 @@ class FrequencyController extends Controller
     public function update_frequency(Request $request){
         $update_id = $request->input('update_id');
         $frequency_update = strtoupper(trim($request->input('frequency_update')));
-        
+        $year_interval_update = $request->input('year_interval_update');
         $is_jan = $request->input('is_jan_update');
         $is_feb = $request->input('is_feb_update');
         $is_mar = $request->input('is_mar_update');
@@ -95,6 +106,7 @@ class FrequencyController extends Controller
                     'is_oct'=>$is_oct, 
                     'is_nov'=>$is_nov,
                     'is_dec'=>$is_dec,
+                    'year_interval'=>$year_interval_update
                 );
                 Frequency::where('id',$update_id)->update($data);
                 return back()->with('success','FREQUENCY SUCCESSFULLY UPDATED!');
@@ -117,6 +129,7 @@ class FrequencyController extends Controller
                         'is_oct'=>$is_oct, 
                         'is_nov'=>$is_nov,
                         'is_dec'=>$is_dec,
+                        'year_interval'=>$year_interval_update
                     );
                     Frequency::where('id',$update_id)->update($data);
                     return back()->with('success','FREQUENCY SUCCESSFULLY UPDATED!');
@@ -141,6 +154,7 @@ class FrequencyController extends Controller
                     'is_oct'=>$is_oct, 
                     'is_nov'=>$is_nov,
                     'is_dec'=>$is_dec,
+                    'year_interval'=>$year_interval_update
                 );
                 Frequency::where('id',$update_id)->update($data);
                 return back()->with('success','FREQUENCY SUCCESSFULLY UPDATED!');
@@ -148,4 +162,9 @@ class FrequencyController extends Controller
         endif;
     }
 
+    public function frequency_ajax(Request $request){
+        $search = $request->input('search');
+        $frequencies = Frequency::AjaxSearch($search);
+        return FrequencyResource::collection($frequencies);
+    }
 }

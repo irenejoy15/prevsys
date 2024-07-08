@@ -7,6 +7,7 @@ use Uuid;
 use Carbon\Carbon;
 use App\Models\Location;
 use App\Http\Requests\LocationCreateRequest;
+use App\Http\Resources\LocationResource;
 
 class LocationController extends Controller
 {
@@ -49,6 +50,12 @@ class LocationController extends Controller
         else:
             return back()->with('danger','LOCATION NAME '.$location_name.' Already Exist!');
         endif;
+    }
+
+    public function location_ajax(Request $request){
+        $search = $request->input('search');
+        $locations = Location::AjaxSearch($search);
+        return LocationResource::collection($locations);
     }
   
 }
