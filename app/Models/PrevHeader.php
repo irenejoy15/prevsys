@@ -16,11 +16,9 @@ class PrevHeader extends Model
         'frequency_id',
         'company_id',
         'department_id',
-        '1st_week',
-        '2st_week',
-        '3rd_week',
-        '4th_week',
-        '5th_week',
+        'name',
+        'week_from',
+        'week_to',
         'date_from',
         'date_to',
         'remarks_1',
@@ -30,6 +28,8 @@ class PrevHeader extends Model
         'remarks_5',
         'assigned',
         'is_onetime',
+        'month',
+        'year'
     ];
 
     protected $casts = [
@@ -39,4 +39,11 @@ class PrevHeader extends Model
         'frequency_id'=>'string'
     ];
 
+    public function Location(){
+        return $this->belongsTo(Location::class,'location_id','id');
+    }
+
+    public function Inventory(){
+        return $this->belongsTo(Inventory::class,'inventory_id','id');
+    }
 }

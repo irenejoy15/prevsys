@@ -99,5 +99,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/location_ajax',[LocationController::class, 'location_ajax'])->name('location_ajax');
     Route::post('/frequency_ajax',[FrequencyController::class, 'frequency_ajax'])->name('frequency_ajax');
     Route::post('/inventory_ajax',[InventoryController::class, 'inventory_ajax'])->name('inventory_ajax');
+    Route::get('/calendar_ajax/{month}/{year}/{company_id}/{department_id}',[HeaderController::class, 'calendar_ajax'])->name('calendar_ajax');
+    Route::get('/company_ajax',[CompanyController::class, 'company_ajax'])->name('company_ajax');
     // END AJAX RESOURCE
 });

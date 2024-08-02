@@ -8,7 +8,7 @@ use App\Models\User;
 use App\Models\UserCompany;
 use Illuminate\Http\Request;
 use Auth;
-
+use Session;
 class LoginController extends Controller
 {
     /*
@@ -59,6 +59,7 @@ class LoginController extends Controller
                 if($user_company!=NULL):
                     if($user->is_active=='1'):
                         Auth::login($user, $remember = false);
+                        Session::put('company', $company_id);
                         return redirect('/inventories')->with('success','SUCCESSFULLY LOGIN');
                     else:
                         return redirect('/login')->with('danger','YOUR ACCOUNT IS ALREADY INACTIVE!');
@@ -71,5 +72,11 @@ class LoginController extends Controller
             endif;
         endif;
         
+    }
+
+    public function logout(Request $request) {
+        Auth::logout();
+        $request->session()->flush();
+        return redirect('/login');
     }
 }

@@ -44,5 +44,9 @@ class CompanyController extends Controller
         Company::where('id',$update_id)->update($data);
         return back()->with('success','COMPANY SUCCESSFULLY UPDATE!');
    }
+
+   public function company_ajax(){
+    
+   }
     
 }

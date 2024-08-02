@@ -218,9 +218,10 @@
 
   <!-- plugins:js -->
 
-    <script src="{{asset('vendors/base/vendor.bundle.base.js')}}"></script>
+    {{-- <script src="{{asset('vendors/base/vendor.bundle.base.js')}}"></script> --}}
     <script src="{{asset('js/jquery-3.7.1.js')}}"></script>
     <script src="{{asset('js/bootstrap.min.js')}}"></script>
+
   @yield('scripts')
 </body>
 
