@@ -215,6 +215,7 @@ class HeaderController extends Controller
                             // 'description'=>'<p><span class="badge bg-primary">'.$header->Location->location_name.'</span</p>',
                             // 'type'=>'event',
                             'color'=>'#'.$rand,
+                            'location'=>$header->Location->location_name
                             // 'everyYear'=>true
                         );
 

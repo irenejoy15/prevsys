@@ -55,7 +55,7 @@
         margin-bottom: 0px;
     }
 
-    table.fc-col-header,.fc-list-day-cushion.fc-cell-shaded{
+    table.fc-col-header,.fc-list-day-cushion.fc-cell-shaded,.location{
         background-color: #ff4a4a;
         color: white;
         height: 50px !important;
@@ -85,5 +85,18 @@
     .irenerow{
         background: black;
         height: 600px;
+    }
+
+    .border-bottom{
+        border-bottom: 1px solid white;
+    }
+
+    .irene-hr {
+        display: block;
+        height: 1px;
+        border: 0;
+        border-top: 1px solid white;
+        margin: 1em 0;
+        padding: 0;
     }
 </style>

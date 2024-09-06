@@ -180,8 +180,10 @@ $( "#inventory_id" ).select2({
                     dayMaxEvents: true, // allow "more" link when too many events
                     events: irene2,
                     eventClick: function(info) {
-
+                        console.log(info.event.extendedProps.location);
                         document.getElementById('main-title').innerHTML = info.event.title; 
+                        document.getElementById('header_id_store').value = info.event.id;
+                        document.getElementById('main_location').innerHTML = info.event.extendedProps.location;
                         info.el.style.borderColor = 'red';
                     }
                 });
@@ -227,5 +229,12 @@ $( "#inventory_id" ).select2({
             }   
         });
         return irene2;
+    }
+
+    function finalize(){
+        header_id = document.getElementById('header_id_store').value;
+        tech_remarks = document.getElementById('tech_remarks').value;
+        control_number = document.getElementById('control_number').value;
+        attachment = document.getElementById('attachment').value;
     }
 </script>
